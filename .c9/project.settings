@@ -1,7 +1,4 @@
 {
-    "build": {
-        "@saveall": true
-    },
     "extensions": {
         "@aws.profile": "profile:default"
     },
