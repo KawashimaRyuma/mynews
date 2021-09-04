@@ -26,17 +26,17 @@ public function create(Request $request)
       $profile->fill($form);
       $profile->save();
 
-    return redirect('admin/profile);
+    return redirect('admin/profile');
 }
  public function index(Request $request)
   {
       $cond_title = $request->cond_title;
-      if ($cond_title != ' $request->cond_title;') {
+      if ($cond_title != '') {
           $posts = ProfileProfile::where('title', $cond_title)->get();
       } else {
           $posts = Profile::all();
       }
-      return view('admin.ProfileProfile.index', ['posts' => $posts, 'cond_title' => $cond_title]);
+      return view('admin.Profile.index', ['posts' => $posts, 'cond_title' => $cond_title]);
   }
  public function edit(Request $request)
   {
@@ -56,17 +56,7 @@ public function create(Request $request)
       $profile =Profile::find($request->id);
       
       $profile_form = $request->all();
-      if ($request->remove == 'true') {
-          $profile_form['image_path'] = null;
-      } elseif ($request->file('image')) {
-          $path = $request->file('image')->store('public/image');
-          $profile_form['image_path'] = basename($path);
-      } else {
-          $profile_form['image_path'] = $news->image_path;
-      }
-
-      unset($profile_form['image']);
-      unset($profile_form['remove']);
+     
       unset($profile_form['_token']);
       
       $profile->fill($news_form)->save();
