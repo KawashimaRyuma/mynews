@@ -4,28 +4,23 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Admin¥ProfileControllers\Controller
+use App\Profile;
 
 class ProfileController extends Controller
 {
-    //
+
     public function add()
 {
     return view('admin.profile.create');
 }
-public function create()
+public function create(Request $request)
 {
     $this->validate($request, Profile::$rules);
 
       $news = new Profile;
       $form = $request->all();
 
- if (isset($form['image'])) {
-        $path = $request->file('image')->store('public/image');
-        $news->image_path = basename($path);
-      } else {
-          $news->image_path = null;
-      }
+ 
       unset($form['_token']);
     
       $profile->fill($form);
@@ -36,17 +31,17 @@ public function create()
  public function index(Request $request)
   {
       $cond_title = $request->cond_title;
-      if ($cond_title != '') {
+      if ($cond_title != ' $request->cond_title;') {
           $posts = ProfileProfile::where('title', $cond_title)->get();
       } else {
-          $posts = ProfileProfile::all();
+          $posts = Profile::all();
       }
       return view('admin.ProfileProfile.index', ['posts' => $posts, 'cond_title' => $cond_title]);
   }
  public function edit(Request $request)
   {
      
-      $news = ProfileProfile::find($request->id);
+      $profile = Profile::find($request->id);
       if (empty($profile)) {
         abort(404);    
       }
@@ -58,7 +53,7 @@ public function create()
       
       $this->validate($request, Profile::$rules);
     
-      $news =Profile::find($request->id);
+      $profile =Profile::find($request->id);
       
       $profile_form = $request->all();
       if ($request->remove == 'true') {
