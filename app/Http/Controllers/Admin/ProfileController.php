@@ -26,7 +26,7 @@ public function create(Request $request)
       $profile->fill($form);
       $profile->save();
 
-    return redirect('admin/profile/create');
+    return redirect('admin/profile);
 }
  public function index(Request $request)
   {
