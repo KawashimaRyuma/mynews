@@ -17,7 +17,7 @@ public function create(Request $request)
 {
     $this->validate($request, Profile::$rules);
 
-      $news = new Profile;
+      $profile = new Profile;
       $form = $request->all();
 
  
