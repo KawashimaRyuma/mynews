@@ -23,7 +23,7 @@
         <!-- Styles -->
          <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         {{-- 以下を削除 --}}
-        <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
+      
         {{-- 以下を追記 --}}
         <link href="{{ asset('css/front.css') }}" rel="stylesheet">
     </head>
