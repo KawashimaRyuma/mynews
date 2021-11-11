@@ -13,6 +13,12 @@ class ProfileController extends Controller
 
     public function add()
     {
+      $profile = new Profile;
+      $profile->name = "ハシ";
+      $profile->gender = "男";
+      $profile->hobby = "映画鑑賞";
+      $profile->introduction = "よろしくお願いします";
+      $profile->save();
         return view('admin.profile.create');
     }
     public function create(Request $request)

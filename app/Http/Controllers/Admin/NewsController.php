@@ -43,7 +43,7 @@ class NewsController extends Controller
 
         return redirect('admin/news');
 }   
-          public function index(Request $request)
+  public function index(Request $request)
   {
       $cond_title = $request->cond_title;
       if ($cond_title != '') {
@@ -51,7 +51,7 @@ class NewsController extends Controller
       } else {
            $posts = News::all();
       }
-      return view('admin.news.index', ['posts' => $posts, 'cond_title' => $cond_title]);
+      return view('admin.news.index', ['posts' => $posts, 'cond_title' => $cond_title,'hoge'=>'hellooo']);
   }
    public function edit(Request $request)
   {
